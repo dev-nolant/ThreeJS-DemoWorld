@@ -9,8 +9,8 @@ Run these commands in IDE or bash/CMD:
 
 ``` bash
 # Install dependencies (only the first time)
-npm install
-
+npm install https://github.com/dev-nolant/ThreeJS-DemoWorld.git
+ 
 # Run the local server at localhost:8080
 # This uses WEBPACK
 npm run dev
