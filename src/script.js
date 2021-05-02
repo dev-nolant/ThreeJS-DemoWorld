@@ -3,19 +3,18 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
-//Loading
+// SETS THE TEXTURE LOADING VARIABLE - DO NOT TOUCH
 const textureLoader = new THREE.TextureLoader()
 
-// Debug
 
 
-// Canvas
+// SETS THE CANVAS VARIALBE - DO NOT TOUCH
 const canvas = document.querySelector('canvas.webgl')
 
-// Scene
+// SETS THE SCENE VARIABLE - DO NOT TOUCH
 const scene = new THREE.Scene()
 
-// Earth
+// ADDS EARTH SPHERE AND TEXTURES
 var geometry = new THREE.SphereGeometry(0.5, 32, 32)
 var material = new THREE.MeshPhongMaterial()
 var earthMesh = new THREE.Mesh(geometry, material)
@@ -26,7 +25,7 @@ material.bumpScale = 0.05
 material.specularMap = textureLoader.load('textures/earthspec1k.jpg')
 
 
-// Clouds
+// ADDS CLOUD OVERLAY - NOT REQUIRED
 var geometry = new THREE.SphereGeometry(0.51, 32, 32)
 var material = new THREE.MeshPhongMaterial({
     map: textureLoader.load('textures/earthcloudmaptrans.jpg'),
@@ -39,7 +38,7 @@ var cloudMesh = new THREE.Mesh(geometry, material)
 earthMesh.add(cloudMesh)
 
 
-
+// ADDS THE SUN/SPOTLIGHT
 
 const pointLight = new THREE.PointLight(0xFFFFFF, .01)
 pointLight.position.set(1, 1, 1)
@@ -49,24 +48,22 @@ scene.add(pointLight)
 
 
 
-/**
- * Sizes
- */
+// ADJUSTS THE SIZES BASED ON WINDOW SIZE
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
 
 window.addEventListener('resize', () => {
-    // Update sizes
+    // UPDATES THE SIZES
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
 
-    // Update camera
+    // UPDATES THE CAMERA
     camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
 
-    // Update renderer
+    // UPDATES THE RENDER
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
@@ -85,6 +82,8 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height)
 
 renderer.setPixelRatio(window.devicePixelRatio);
+
+// MOUSE EVENT HANDLING
 document.addEventListener('mousemove', onDocumentMouseMove)
 
 let mouseX = 0
@@ -100,7 +99,7 @@ function onDocumentMouseMove(event) {
     mouseX = (event.clientX - windowHalfX)
     mouseY = (event.clientY - windowHalfY)
 }
-
+// REFRESH RATE AND ROTATION - DO NOT TOUCH UNLESS NEEDED
 const tick = () => {
     targetY = mouseY * .001
     targetX = mouseX * .001
@@ -124,7 +123,7 @@ const tick = () => {
 }
 
 
-
+//  SCROLLING TEXT REVEAL
 $(document).ready(function () {
     //Take your div into one js variable
     var div = $("#divToShowHide");
