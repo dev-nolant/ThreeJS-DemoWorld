@@ -22,3 +22,5 @@ npm run dev
 npm run build
 ```
 Then you're ready to modify as needed!
+# Note
+Three.JS can be uploaded to a webhost through the converting of the bundler to a static variable. This project's static conversion can be found: [here](https://github.com/dev-nolant/ThreeJS-DemoWorld/tree/main/Single_File)
