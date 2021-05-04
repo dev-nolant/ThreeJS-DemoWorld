@@ -1,4 +1,4 @@
-# [DEMO](code.nolant.org/repos/threejs-world/)
+# [DEMO](https://code.nolant.org/repos/threejs-world/)
 # Three.js Floating Earth Website
 Earth Textures Courtesy of James Hastings-Trew @ http://planetpixelemporium.com/earth.html
 ## Intention
